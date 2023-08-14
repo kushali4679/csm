@@ -4,6 +4,13 @@ COPY . /code
 RUN pip install -r requirements.txt
 RUN pip install -r requirements1.txt
 RUN pip install -r requirements3.txt
+
+
+RUN nvm install 14
+RUN nvm alias default 14
+RUN npm install -g yarn
+
+
 CMD ["uvicorn","main:app","--reload","--host","0.0.0.0","--port","8000"]
 
 
@@ -15,17 +22,3 @@ RUN apt-get update && apt-get install -y \
     libxext6 \
     libxrender-dev
 
-FROM gitpod/workspace-full:latest
-
-# Install Node.js
-RUN nvm install 14
-
-# Set Node.js version
-RUN nvm alias default 14
-
-# Install Yarn package manager
-RUN npm install -g yarn
-
-# Expose ports
-EXPOSE 3000
-EXPOSE 8000
