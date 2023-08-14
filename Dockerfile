@@ -6,10 +6,6 @@ RUN pip install -r requirements1.txt
 RUN pip install -r requirements3.txt
 
 
-RUN nvm install 14
-RUN nvm alias default 14
-RUN npm install -g yarn
-
 
 CMD ["uvicorn","main:app","--reload","--host","0.0.0.0","--port","8000"]
 
