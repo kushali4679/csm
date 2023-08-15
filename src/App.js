@@ -16,13 +16,30 @@ import  { useState } from 'react';
 
 function App() {
 
-  const handleSubmit = (event) => {
+  
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    
-    for (const entry of formData.entries()) {
-      console.log(entry[0], entry[1]);
+    // Get the form element and form data
+    const formElement = event.target;
+    const formData = new FormData(formElement);
+
+    try {
+      // Make a POST request to the FastAPI server
+      const response = await fetch('/upload_video', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Response from server:', responseData);
+        // Handle the response as needed
+      } else {
+        console.error('Failed to upload video:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('Error uploading video:', error);
     }
   };
  
