@@ -5,6 +5,8 @@
 
 
 
+
+
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
@@ -178,23 +180,51 @@
   flex-direction: column;
 }
 .image-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px; /* Adjust the margin as needed */
+  height: 45vh;
 }
+
+
+
 
 .image-container img {
   width: 190px; /* Adjust the image width as needed */
   margin-bottom: 10px; /* Adjust the margin between images as needed */
 }
 
+
 .c1
 {
-  align-items: center;
-  text-align: center;
+  text-align:center;
+  
 }
+
+.detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the spacing between items */
+  padding: 20px; /* Add padding around the section */
+}
+
+.detail-item {
+  flex-basis: calc(25% - 20px); /* Four items in one row on large screens */
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1199px) {
+  /* Two items in one row on medium screens */
+  .detail-item {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 767px) {
+  /* One item in one row on small screens */
+  .detail-item {
+    flex-basis: 100%;
+  }
+}
+
 
 .container
 {
@@ -216,8 +246,6 @@
 .detail
 {
    background-color: #55286f;
-   height: 80px;
-   width: 100%;
    display: flex;
    margin-top: 3%;
    margin-bottom: 3%;

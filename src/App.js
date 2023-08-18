@@ -13,9 +13,36 @@ import c3 from './manoj2x.png';
 import c4 from './mani2x.png';
 import c5 from './sandeep2x.png';
 import  { useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 function App() {
-
+  
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5, 
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -135,61 +162,50 @@ function App() {
         </div>
       </Carousel>
       </div>
-      <div className='staff'>
-      <h1 class="c1">Employees</h1>
-      <div className="image-container">
-      <div className="col-12 mb-3 col-md-2">
-          <div className="c1">
-              <img src={c1} onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
-              <h2 className='cname surya1' onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
+  <div className="image-container">
+    <h1 className="c1">Employees</h1>
+    <Slider {...settings}>
+      <div className="employee-slide">
+              <img src={c1} className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
+              <h2 className="c1" onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
       </div>
+      <div className="employee-slide">
+      <img src={c1} className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
+              <h2 className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
       </div>
-      <div className="col-12 mb-3 col-md-2">
-          <div className="c1">
-              <img onClick={() => updateName('Pavan', 'Feb 2022', '4.7', '570')}  style={{ cursor: 'pointer' }} src={c2}/>
-              <h2 className='cname pavan' onClick={() => updateName('Pavan', 'Feb 2022', '4.7', '570')}  style={{ cursor: 'pointer' }}>Pavan</h2>
+      <div className="employee-slide">
+      <img src={c1} className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
+              <h2 className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
       </div>
+      <div className="employee-slide">
+      <img src={c1}   onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
+              <h2 className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
       </div>
-      <div className="col-12 mb-3 col-md-2">
-          <div className="c1">
-              <img src={c3}  onClick={() => updateName('Manoj', 'Dec 2022', '4.3', '620')}  style={{ cursor: 'pointer' }}/>
-              <h2 className='cname manoj' onClick={() => updateName('Manoj', 'Dec 2022', '4.3', '620')}  style={{ cursor: 'pointer' }}>Manoj</h2>
-
+      <div className="employee-slide">
+      <img src={c1} className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
+              <h2 className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
       </div>
-      </div>
-      <div className="col-12 mb-3 col-md-2">
-          <div className="c1">
-              <img src={c4} onClick={() => updateName('Manikanta', 'Apr 2023', '4.1', '670')}  style={{ cursor: 'pointer' }} />
-              <h2 className='cname manikanta' onClick={() => updateName('Manikanta', 'Apr 2023', '4.1', '670')}  style={{ cursor: 'pointer' }}>Manikanta</h2>
-      </div>
-      </div>
-      <div className="col-12 mb-3 col-md-2">
-          <div className="c1">
-              <img src={c5} onClick={() => updateName('Sandeep', 'June 2022', '4.0', '430')}  style={{ cursor: 'pointer' }}/>
-              <h2 className='cname sandeep' onClick={() => updateName('Sandeep', 'June 2022', '4.0', '430')}  style={{ cursor: 'pointer' }}>Sandeep</h2>
-      </div>
-      </div>
-
+    </Slider>
+</div>
+<div className="detail">
+  <div className="detail-item">
+  <span><b className='heading'>Name : </b></span>
+         <span><b id="Empname">{empInfo.name}</b></span>
   </div>
-   </div>
-      <div className='detail'>
-         <div>
-         <span><b className='heading'>Name : </b></span>
-         <span><b id="Empname">{empInfo.name}</b></span> 
-         </div>
-         <div >
-         <span><b className='heading'>Hired : </b></span>
+  <div className="detail-item">
+  <span><b className='heading'> Hired : </b></span>
          <span><b id="Emphired">{empInfo.hired}</b></span> 
-         </div>
-         <div>
-         <span><b className='heading'>Average-Rating : </b></span>
+  </div>
+  <div className="detail-item">
+  <span><b className='heading'> Average-Rating : </b></span>
          <span><b id="Emprating">{empInfo.rating}</b></span> 
-         </div>
-         <div>
-         <span><b className='heading'>Average-Sale : </b></span>
+  </div>
+  <div className="detail-item">
+  <span><b className='heading'> Average-Sale : </b></span>
          <span><b id="Empsale">{empInfo.sale}</b></span> 
-         </div>
-      </div>
+  </div>
+</div>
+
       <div class="container pt-5 pb-5">
        
             <div class="row">
@@ -229,7 +245,10 @@ function App() {
             </div>
        
     </div>
-    <div className="footer ">
+    
+    
+    
+     <div className="footer ">
     <div className="des mb-3 col-12 col-md-3">
       <img src={logo} alt="My Logo" className="footer-logo" /><br></br>
       <div className='add'>
@@ -251,7 +270,8 @@ function App() {
         <span><i className='fab fa-twitter'></i></span>
         <i class='fab fa-discord'></i></p>
       </div>
-    </div>
+    </div>  
+
     </div>
   );
 }
