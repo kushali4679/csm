@@ -21,16 +21,16 @@ import 'slick-carousel/slick/slick-theme.css';
 function App() {
   
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5, 
+    slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
@@ -43,6 +43,7 @@ function App() {
       },
     ],
   };
+  
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -170,23 +171,25 @@ function App() {
               <h2 className="c1" onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
       </div>
       <div className="employee-slide">
-      <img src={c1} className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
-              <h2 className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
+      <img onClick={() => updateName('Pavan', 'Feb 2022', '4.7', '570')}  style={{ cursor: 'pointer' }} src={c2}/>
+              <h2 className='cname pavan' onClick={() => updateName('Pavan', 'Feb 2022', '4.7', '570')}  style={{ cursor: 'pointer' }}>Pavan</h2>
       </div>
       <div className="employee-slide">
-      <img src={c1} className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
-              <h2 className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
+              <img src={c3}  onClick={() => updateName('Manoj', 'Dec 2022', '4.3', '620')}  style={{ cursor: 'pointer' }}/>
+              <h2 className='cname manoj' onClick={() => updateName('Manoj', 'Dec 2022', '4.3', '620')}  style={{ cursor: 'pointer' }}>Manoj</h2>
       </div>
       <div className="employee-slide">
-      <img src={c1}   onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
-              <h2 className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
+              <img src={c4} onClick={() => updateName('Manikanta', 'Apr 2023', '4.1', '670')}  style={{ cursor: 'pointer' }} />
+              <h2 className='cname manikanta' onClick={() => updateName('Manikanta', 'Apr 2023', '4.1', '670')}  style={{ cursor: 'pointer' }}>Manikanta</h2>
       </div>
       <div className="employee-slide">
-      <img src={c1} className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}/>
-              <h2 className="c1"  onClick={() => updateName('Surya Kumar', 'Jan 2023', '4.5', '450')}  style={{ cursor: 'pointer' }}>Surya</h2>
+              <img src={c5} onClick={() => updateName('Sandeep', 'June 2022', '4.0', '430')}  style={{ cursor: 'pointer' }}/>
+              <h2 className='cname sandeep' onClick={() => updateName('Sandeep', 'June 2022', '4.0', '430')}  style={{ cursor: 'pointer' }}>Sandeep</h2>
       </div>
     </Slider>
 </div>
+
+
 <div className="detail">
   <div className="detail-item">
   <span><b className='heading'>Name : </b></span>
@@ -209,7 +212,72 @@ function App() {
       <div class="container pt-5 pb-5">
        
             <div class="row">
-                <div class="col-12 col-md-6">
+                
+                    <div class="col-12 mb-3 col-md-6">
+                        <div class="links">
+                            
+                            <a className="link1" href="#" id="sv1" onClick={() => showVideo1()}><span><i className="fa fa-video-camera"></i></span>06-06-2023 10:00 AM ★★★★★</a>
+                            <a className="link1" href="#" id="sv2" onClick={() => showVideo2()}><span><i className="fa fa-video-camera"></i></span>07-06-2023 09:30 AM ★★★★☆</a>
+                            <a className="link1" href="#" id="sv3" onClick={() => showVideo3()}><span><i className="fa fa-video-camera"></i></span>08-06-2023 11:32 AM ★★★☆☆</a>
+                            <a className="link1" href="#" id="sv4" onClick={() => showVideo3()}><span><i className="fa fa-video-camera"></i></span>09-06-2023 09:45 AM ★★★★★</a>
+                            <a className="link1" href="#" id="sv5" onClick={() => showVideo3()}><span><i className="fa fa-video-camera"></i></span>10-06-2023 05:30 PM ★★★★☆</a>                       
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-3 col-md-6">
+                          <iframe class="video" id="video"  src={videoSource} width="640" height="480" allow="autoplay"></iframe>
+                          <div className='videoinfo'>
+                          <div class=" mb-3 col-md-4">
+                              <div class="video-card">
+                                <h4>Made Sale in</h4>
+                                <b style={{color: '#55286f'}}>30 Mins</b>
+                              </div>
+                          </div>
+                          <div class=" mb-3 col-md-4">
+                              <div class="video-card">
+                              <h3>Performance</h3>
+                              <b style={{padding:'5px',color: '#55286f'}}><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></b>
+                              </div>
+                          </div>
+
+                           <div class="mb-3 col-md-4">
+                              <div class="video-card">
+                                  <form action="/upload_video" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+                                    <input type="file" name="video_file" />
+
+                                    <input style={{ display:'none' }} type="text" id="emp_name" name="text_name" value={empInfo.name} required /><br />
+                                    <input style={{ display:'none' }} type="text" id="emp_rating" name="text_rating" value={empInfo.rating} required />
+                                    <input style={{ display:'none' }} type="text" id="emp_sale" name="text_sale" value={empInfo.sale} required />
+
+                                    <input className="sub" type="submit" value="Upload" />
+                                  </form>
+                              </div>
+                          </div>
+                             
+                            {/* <div class="col-md-3">
+                            <h4>Made Sale in</h4>
+                            <b style={{color: '#55286f'}}>30 Mins</b>
+                            </div>
+                            <div class="col-md-2">
+                            <h3>Performance</h3>
+                            <b style={{padding:'5px',color: '#55286f'}}><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></b>
+                            </div>
+                            <div class="col-md-2">
+                            <form action="/upload_video" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+                            <input type="file" name="video_file" />
+
+                            <input style={{ display:'none' }} type="text" id="emp_name" name="text_name" value={empInfo.name} required /><br />
+                            <input style={{ display:'none' }} type="text" id="emp_rating" name="text_rating" value={empInfo.rating} required />
+                            <input style={{ display:'none' }} type="text" id="emp_sale" name="text_sale" value={empInfo.sale} required />
+
+                            <input className="sub" type="submit" value="Upload" />
+                          </form>
+                            </div> */}
+                          </div>
+                    </div>
+
+                {/* <div class="col-12 col-md-6">
                     <div className="links"  style={{ border: '2px solid #000', padding: '10px' }}>
                     <a className="link1" href="#" id="sv1" onClick={() => showVideo1()}><span><i className="fa fa-video-camera"></i></span>06-06-2023 10:00 AM ★★★★★</a>
                     <a className="link1" href="#" id="sv2" onClick={() => showVideo2()}><span><i className="fa fa-video-camera"></i></span>07-06-2023 09:30 AM ★★★★☆</a>
@@ -241,15 +309,48 @@ function App() {
                 </form>
                   </div>
                 </div>  
-                </div>
+                </div> */}
             </div>
        
     </div>
     
-    
-    
-     <div className="footer ">
-    <div className="des mb-3 col-12 col-md-3">
+     <div className="footer row">
+     
+      <div class="col-12 mb-3 col-md-4">
+          <div class="wcu-card">
+                    <img src={logo} alt="My Logo" className="footer-logo" /><br></br>
+                    <div className='add'>
+                    <p>Cloudkarya.inc, Flat no:402,</p>
+                    <p>Vinayagar Heights,Waltair Uplands</p>
+                    <p>Visakhapatnam, Andhra Pradesh,</p>
+                    <p>Pin:530003,India</p>
+                    </div> 
+          </div>
+      </div>
+      <div class="col-12 mb-3 col-md-4">
+          <div class="wcu-card">
+             <div class="pow">
+                  <p className='pow1'>Powered By</p>
+                  <p>
+                  <span style={{color: "blue"}}>Cloud</span>
+                  <span style={{color: "yellow"}}>Karya</span>
+                </p> 
+             </div> 
+          </div>
+      </div>
+      <div class="col-12 mb-3 col-md-4">
+          <div class="wcu-card">
+            <div class="add1">
+              <p><span><i className="fa fa-envelope" ></i></span>support@cloudkarya.com</p>
+              <p><span><i className="fa fa-phone" ></i></span>0891 663 7995</p>
+              <p className='icons'><span><i className='fab fa-instagram'></i></span>
+              <span><i className='fab fa-facebook-f'></i></span>
+              <span><i className='fab fa-twitter'></i></span>
+              <i class='fab fa-discord'></i></p>
+            </div>
+       </div>
+    </div>
+    {/* <div className="des col-12 mb-3 col-md-4">
       <img src={logo} alt="My Logo" className="footer-logo" /><br></br>
       <div className='add'>
       <p>Cloudkarya.inc, Flat no:402,</p>
@@ -258,18 +359,18 @@ function App() {
       <p>Pin:530003,India</p>
       </div> 
     </div>
-      <div class="pow mb-3 col-12 col-md-5">
+      <div class="pow col-12 mb-3 col-md-4">
          <p className='pow1'>Powered By</p>
          <p>CloudKarya</p> 
       </div>
-      <div class="add1 col-12 mb-3  col-md-3">
+      <div class="add1 col-12 mb-3 col-md-4">
         <p><span><i className="fa fa-envelope" ></i></span>support@cloudkarya.com</p>
         <p><span><i className="fa fa-phone" ></i></span>0891 663 7995</p>
         <p className='icons'><span><i className='fab fa-instagram'></i></span>
         <span><i className='fab fa-facebook-f'></i></span>
         <span><i className='fab fa-twitter'></i></span>
         <i class='fab fa-discord'></i></p>
-      </div>
+      </div> */}
     </div>  
 
     </div>
